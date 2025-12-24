@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayuda - Elyra GPT</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Elyra GPT - Asistente Inteligente</h1>
+  <p>Tu asistente listo para responder todas tus dudas.</p>
+</header>
+
+<div id="elyraChat"></div>
+<div id="chatToggle">💬</div>
+
+<script>
+  (function(c,h,a,t,b,e){
+      t='https://chatbase.co/embed.js'; 
+      b=document.createElement('script'); 
+      b.src=t; 
+      b.async=1; 
+      e=document.getElementsByTagName('script')[0]; 
+      e.parentNode.insertBefore(b,e); 
+  })();
+
+  let chatOpen = false;
+  document.getElementById('chatToggle').addEventListener('click', () => {
+    const chat = document.getElementById('elyraChat');
+    chatOpen = !chatOpen;
+    chat.style.display = chatOpen ? 'block' : 'none';
+  });
+
+  window.addEventListener('load', () => {
+    if(window.ChatbaseEmbed){
+      window.ChatbaseEmbed.init({
+        agentId: '5ic5b4b77QAXNN2PbKgW1',
+        chatTitle: 'Elyra GPT',
+        welcomeMessage: 'Hola! Soy Elyra, tu asistente inteligente. ¿En qué puedo ayudarte hoy?',
+        themeColor: '#2c5364',
+        container: 'elyraChat'
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
